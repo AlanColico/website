@@ -1,0 +1,854 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+}
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Light background for better contrast */
+    color: #333; /* Standard text color */
+}
+
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 10%;
+    background-color: #ffebf0; /* Soft pink background for branding */
+}
+
+/* Image on Top for Mobile View */
+.math-banner {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded edges for a softer look */
+}
+
+/* Left Side - Text */
+.img-text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    max-width: 600px;
+}
+
+.img-text h1 {
+    font-family: 'Georgia', serif;
+    font-size: 2.8rem;
+    color: #4c4c4c;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Add emphasis */
+    letter-spacing: 1px; /* Slight spacing for readability */
+}
+
+.img-text p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.img-text button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkviolet;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.img-text button:hover {
+    background-color: pink;
+}
+
+/* Right Side - Image */
+.math-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.math-image img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add depth */
+}
+
+/* Keyframe Animation */
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Animation to Text */
+.animated-text {
+    animation: fadeInSlideUp 1.5s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .math-image {
+        display: none;
+    }
+
+    .math-banner {
+        display: block;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .img-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .img-text {
+        text-align: center;
+        padding: 0;
+    }
+
+    .img-text h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .img-text p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .img-text button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+        
+/* Navbar Styles */
+.homepage-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    color: violet;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.department-name {
+    padding-left: 15px;
+    flex-grow: 1;
+}
+
+.department-name h1 {
+    font-family: Arial;
+    font-size: 20px; /* Increased font size */
+    font-weight: bold;
+    color: darkviolet;
+    margin: 0; /* Ensures no margin from h1 */
+}
+
+.search-bar {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.search-bar input {
+  width: 700px;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  transition: .8s;
+  background: transparent;
+}
+
+.search-icon {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-icon i {
+  font-size: 18px;
+  color: darkviolet;
+}
+
+.title {
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    color: darkviolet;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: darkviolet;
+    display: inline-block;
+    z-index: 1001;
+}
+
+.menu button i {
+    vertical-align: middle;
+    margin-right: 8px;
+
+}
+
+/* Sidebar Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Start off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: darkviolet;
+    padding-top: 100px;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out; /* Smooth toggle effect */
+}
+
+/* Show Sidebar */
+.menu.show {
+    transform: translateX(250px); /* Slides the menu into view */
+}
+
+/* Hide Sidebar */
+.menu.hide {
+    transform: translateX(-250px); /* Keeps it hidden */
+}
+
+
+.menu button {
+    width: 100%;
+    background-color: darkviolet;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.menu button:hover {
+    background-color: blueviolet;
+}
+
+/* Dropdown Menu */
+.learning-dropdown,
+.Eservice-dropdown {
+    position: relative;
+    display: block;
+    width: 100%; /* Ensures dropdown spans full menu width */
+}
+
+.lr-content,
+.Es-content {
+    max-height: 0; /* Collapsed by default */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out; /* Smooth expand/collapse */
+    background-color: darkviolet;
+}
+
+/* To ensure smooth scrolling when hovering dropdown menu */
+.lr-content,
+.Es-content {
+    transition: max-height 0.3s ease-out;
+}
+
+.lr-content a,
+.Es-content a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.lr-content a:hover,
+.Es-content a:hover {
+    background-color: white;
+    color: black;
+}
+
+.learning-dropdown:hover .lr-content,
+.learning-dropdown:focus-within .lr-content {
+    max-height: 250px; 
+}
+
+.Eservice-dropdown:hover .Es-content,
+.Eservice-dropdown:focus-within .Es-content {
+    max-height: 300px; 
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu {
+       width: 250px;
+    }
+
+    .menu.show {
+        transform: translateX(250px); /* Shown when toggled */
+    }
+
+    .menu.hide {
+        transform: rotateX(-250px);
+    }
+
+    .menu-icon {
+        display: block; /* Hamburger menu visible on mobile */
+    }
+
+    .search-bar {
+        justify-content: center;
+      }
+
+    .search-bar input {
+        width: 100%; /* Full width on mobile */
+    }
+
+    
+    .title {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+}
+
+/* Upload Access Form Container */
+.upload-access-container {
+    position: relative;
+    margin-top: 10px; 
+    background-color: darkviolet;
+    padding: 5px; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.upload-access-container .Access {
+    color: #fff; 
+    padding: 15px; 
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #ccc; 
+}
+
+.upload-access-container .Access:hover {
+    background-color: #f7f7f7; 
+    color: #333; 
+    border-radius: 5px; 
+}
+
+.upload-access-container .Access:last-child {
+    border-bottom: none; 
+}
+
+/* Input Form */
+.upload-access-container input[type="password"] {
+    width: 90%; /* Adjust width to 90% */
+    padding: 10px; 
+    margin-bottom: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+}
+
+.upload-access-container input[type="password"]:focus {
+    border-color: #aaa; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+/* Button */
+.upload-access-container button[type="button"] {
+    width: 90%; /* Adjust width to 90% */
+    padding: 10px; 
+    background-color: #4CAF50; 
+    color: #fff; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+.upload-access-container button[type="button"]:hover {
+    background-color: #3e8e41; 
+}
+
+/* General styles for the announcement section */
+.announcement-section {
+    text-align: center;
+    padding: 20px;
+    color: darkviolet;
+}
+
+.announcement-section h1 {
+    font-size: 2rem;
+    color: violet;
+}
+
+.announcement-section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+
+/* Section Base Styling */
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    color: #333;
+    text-align: center;
+}
+
+.seccontainer {
+    max-width: 1000px;
+    width: 100%;
+    background: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learningcontainer {
+    max-width: 1250px;
+    width: 100%;
+    background: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Section-Specific Styling */
+.Announce-section {
+    background: linear-gradient(135deg, #bae1ff, #d5baff);
+}
+.learning-section {
+    background: linear-gradient(135deg, #bae1ff, #d5baff);
+}
+.Eservice-section {
+    background: linear-gradient(135deg, #ffb3ba, #ffdfba);
+}
+
+.gallery-section {
+    background: linear-gradient(135deg, #bae1ff, #d5baff);
+}
+
+.settings-section {
+    background: linear-gradient(135deg, #baffc9, #ffffba);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}
+
+/* Upload box styles */
+.upload-box {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: darkviolet;
+    text-align: center;
+}
+
+#error-message {
+    color: red;
+    display: none;
+}
+
+.upload-box h2 {
+    font-size: 1.8rem;
+    color: violet;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.upload-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-box label {
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: darkviolet;
+}
+
+.upload-box input[type="text"], 
+.upload-box textarea, 
+.upload-box input[type="file"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.upload-box input[type="text"]:focus, 
+.upload-box textarea:focus, 
+.upload-box input[type="file"]:focus {
+    border-color: violet;
+    box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+}
+
+.upload-box button {
+    padding: 10px 20px;
+    background-color: darkviolet;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.upload-box button:hover {
+    background-color: violet;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    max-width: 100%; 
+    width: auto; 
+    min-width: 300px; 
+    max-width: 600px; 
+    box-sizing: border-box;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.image {
+    width: 100%;
+    height: 180px;
+    background-color: #f3f4f6; /* Fallback if no image is loaded */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #111827;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.desc {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 1rem;
+}
+
+.action {
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action:hover {
+    background-color: #2563eb;
+}
+
+/* Announcement Section Styling */
+#announcementList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0 10px;
+    place-items: center;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px); /* Start slightly lower */
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .card .title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .card .desc {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .card .action {
+    margin: 10px 0;
+  }
+  
+  .card .action a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .card .Editactions,
+  .card .Deleteactions {
+    margin-top: 5px;
+  }
+  
+  .card.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+  }
+  
+  /* Add animation to the welcome text on scroll */
+  .animated-text {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .animated-text.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+/* Drive Section Styling */
+.module-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.containers {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 24px; 
+    flex-wrap: wrap; 
+    padding: 10px; 
+}
+
+.card-link {
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* Card Design */
+.drive-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: flex-start;
+    width: 280px; 
+    border-radius: 24px;
+    line-height: 1.6;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    background: transparent; 
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 24px;
+    padding: 36px;
+    border-radius: 22px;
+    color: #ffffff;
+    overflow: hidden;
+    background: darkviolet; 
+    transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.contents::before,
+.contents::after {
+    display: none; 
+}
+
+.contents svg {
+    width: 48px;
+    height: 48px;
+    align-self: flex-start; 
+}
+
+.contents .para {
+    z-index: 1;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    align-self: flex-start; 
+}
+
+.contents .link {
+    z-index: 1;
+    color: #88b7ec;
+    text-decoration: none;
+    font-size: 16px;
+    align-self: flex-start;
+}
+
+.contents .link:hover {
+    text-decoration: underline;
+}
+
+/* Card Hover Effect */
+.drive-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    width: 280px;
+    border-radius: 24px;
+    line-height: 1.6;
+    background: darkviolet; 
+    transition: transform 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.drive-card:hover {
+    transform: translate(0px, -8px); 
+}
+
+.card-link:hover {
+    transform: scale(1);
+}
